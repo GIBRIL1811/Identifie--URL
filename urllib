@@ -1,0 +1,33 @@
+    from urllib.parese import urlparse
+
+
+    url= "http://www.apple.com:80/ipad/index.html"
+
+
+    parsed_url= urlparse(url)
+
+
+    protocol = parsed_url.scheme
+    host = parsed_url.netloc.split(':') [0]
+    filename = parsed_url.path
+
+
+    if parsed_url.port:
+        port = parsed_url.port
+    else: 
+        if protocol == 'http' :
+            port = 80
+        elif protocol == 'https' :
+            port = 443
+        else: 
+            port = 'undefined'
+
+    ref = parsed_url.fragment if parsed_url.fragment else "null"
+
+
+    print(f"url ={url}")
+    print(f"protocol = {protocol}")
+    print(f"host = {host}")
+    print(f"finename = {filename}")
+    print(f"port ={port}")
+    print(f"ref ={ref}")
